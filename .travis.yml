@@ -2,6 +2,7 @@ python:
 - '3.6'
 install:
 - sudo pip install ansible==2.3.0 molecule apache-libcloud==0.20.1 pycrypto testinfra==1.11.1
+  six==1.10.0 pylib
 env:
   matrix:
   - GCE_CREDENTIALS_FILE="$(pwd)/credentials.json"
