@@ -1,8 +1,8 @@
 ---
 python:
-  - '3.6'
+- '3.6'
 install:
-  - sudo pip install ansible==2.3.0 molecule apache-libcloud==0.20.1 pycrypto testinfra==1.11.1 six==1.10.0 pylib
+- sudo pip install ansible==2.3.0 molecule apache-libcloud==0.20.1 pycrypto testinfra==1.11.1 six==1.10.0 pylib
 env:
   matrix:
   - GCE_CREDENTIALS_FILE="$(pwd)/credentials.json"
@@ -11,15 +11,15 @@ env:
   - secure: ieAit97+Xr5pnaIWRoc/S08/aHaiuUsqDKXg+R3edQ3PdYujWTAheEyn7d116Aij1TudI/S3dGsuJaxyZzFQjvBx0L/Vnt0H+q0CPbrq6xlVO2SPL8JGq0ZizFQyCFSwXB2G8qRP1JaL+cjpq/n2XCZOxIFNjdXHXPDETt7h7GZ1XUXhfovBR3vmyKVwO9a7yxHttPOVyCihNFuIUWTpNUjVCtlMXe6vtbg2X0pjdyN7ACeG5MAw4/uS3O4kJuKDlPYQV7EkxzBmVXkBn05hKy5wRg+SQFoUb8gZ2e97dq1OpLRa9lMZucOIGR96heqXJzZ/4OxurQ3GQU8dfk4tm+I6ZMB4HPg0qKFoK5GXADE2hE15v7ISBXEfEYOwVmOnwPugeft8VcHx4AfIZAmi/lDg9hI1LCJoyaL0mEBp5etgRAdt6/zm4FUnSXHnNLn8of3tSmVc5f1QIwvy9T9aZ7pJyzveKpAi/DruVSsqfo9VlZNRX3hqezmQ9Mgl9lGXXCkV82gTklm3PY+pIYpphzXb/JPQquvYaGsIpbZvuzn0B+5nfBSoUNQ1Gst0jbkTEMaW7RcT7KYiK9rCMQCph0dwUwGOY9RrTfa7UOlkRaHnDqJbw/C0Ipkiwd3gMDQO3UUc24BDVGTcJ2SwzgCxDSvPUssujXzglJJzLKY/8ZA=
   - secure: TXx12j0WyhqOxoOOkAW6meTDSHxRC0RNhd8dFeO3HA6Qsy0X9vnJjA7rEcyMvQ4ba+ltb0iYQjZ9w3XFcFfJKuRC7YVbpftLFIAAlMN6CAJyuaI8KdhcYh9o0yTqaO4Iwc7FHIE2npLTsMCSrGNFzk8y/sLkyQhf6654Xs4WvqhC3lj0nOtVQ2up3/qS/lU/mpbWNxYVs+7+x8MQcVEsUlwFApk5TRMDUwE2jvwnpmSHDnTHC4ObjkiGYZYAStKzATitjo7MNgOuFAYXm+cGpOamrNC8EG0XnexsHcsNGXF2grHojL3ttqu/MMSdMPiEjy7ZV1waM9shsrpFsTNXsmQoxudQ+rr/evfNQi1hgdLjwFgNsxH2ZxUxx899qXxIVHuiGz+WnUuCxF+v0Xh8Csfq+s9B573QY7JBneG65QUlAPpqGRCTZqoRjur1al2KlKI+/zD0LZrd1B0+GF9PJrm6O4/f0RT5UvUpJQsjo+yBJL7wVCzNs2FNYJ1G+sBMOO4kM6dHvVC9ywyTbM/IyEbbZCr++0TOuJrnqIdHNi8o0+Hmvk4/8J+oM/lNrHxP9A21tMYR+ZiqIJrQi4wZois4AU1K9HZ70O2TLR+sRY82i6mTRnRyhIiD1hFlC8b+n58QDFNzWDvLMclyYt/6Ho0IwDPBocg79R6lbm+yghs=
 script:
-  - molecule create
-  - molecule converge
-  - molecule --debug verify
+- molecule create
+- molecule converge
+- molecule --debug verify
 after_script:
-  - molecule destroy
+- molecule destroy
 before_install:
-  - openssl aes-256-cbc -K $encrypted_599ed6bfae42_key -iv $encrypted_599ed6bfae42_iv
+- openssl aes-256-cbc -K $encrypted_599ed6bfae42_key -iv $encrypted_599ed6bfae42_iv
   -in secrets.tar.enc -out secrets.tar -d
-  - tar xvf secrets.tar
-  - mv google_compute_engine /home/travis/.ssh/
-  - chmod 0600 /home/travis/.ssh/google_compute_engine
+- tar xvf secrets.tar
+- mv google_compute_engine /home/travis/.ssh/
+- chmod 0600 /home/travis/.ssh/google_compute_engine
 
